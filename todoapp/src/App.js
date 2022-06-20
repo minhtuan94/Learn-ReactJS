@@ -14,7 +14,7 @@ function App() {
   const [job, setJob] = useState('')
   const [jobs, setJobs] = useState(() => {
     const getJob = JSON.parse(localStorage.getItem('jobs'))  // conver json từ chuỗi thành mảng
-    return getJob ?? []
+    return getJob || []
   })
 
   function HandleChange(e) {
@@ -47,7 +47,12 @@ function App() {
 
       <ul>
         {jobs.map((job, item) => (
-          <li key={item}>{job}</li>
+          <li key={item}>
+            {job}
+            <span>
+              &time;
+            </span>
+          </li>
         ))}
       </ul>
     </div>
