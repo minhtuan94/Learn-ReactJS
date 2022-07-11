@@ -1,8 +1,7 @@
-import Context from "./component/Context";
-import {useState,createContext} from 'react'
+import Paragraph from "./component/paragraph";
+import {ThemeContext} from "./ThemeContext";
+import { useContext } from "react"
 import './App.css'
-
-export const ThemeContext = createContext()
 
 //context
 //compA => compB => compC
@@ -12,21 +11,13 @@ export const ThemeContext = createContext()
 //3. Consumer: giúp compB hoặc compC nhận dữ liệu
 
 function App() {
-
-  const[theme, setTheme] = useState('dark')
-
-  function ChangeColor() {
-    setTheme(theme === 'dark'? 'light': 'dark')
-  }
+  const context = useContext(ThemeContext)
 
   return (
-    <ThemeContext.Provider value={theme}>
-
     <div className="App" style={{padding: 20}}>
-      <button onClick={ChangeColor} >Theme</button>
-      <Context/>
+      <button onClick={context.ChangeColor} >Theme</button>
+      <Paragraph/>
     </div>
-    </ThemeContext.Provider>
   );
 }
 

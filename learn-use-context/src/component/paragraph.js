@@ -1,14 +1,14 @@
 import { useContext } from "react"
-import { ThemeContext } from '../App'
+import { ThemeContext } from '../ThemeContext'
 
 
 function Paragraph() {
 
-    const theme = useContext(ThemeContext)
+    const context = useContext(ThemeContext)
 
     return(
         <>
-            <h1 className={theme}> Siêu anh hùng mavel chơi đồ </h1>
+            <h1 className={context.theme}> Siêu anh hùng mavel chơi đồ </h1>
         </>
     )
 }
